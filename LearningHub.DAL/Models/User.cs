@@ -27,5 +27,20 @@ public partial class User
     public DateTime? CreatedAt { get; set; }
 
     [InverseProperty("User")]
+    public virtual ICollection<Comment> Comments { get; set; } = new List<Comment>();
+
+    [InverseProperty("CreatedByNavigation")]
+    public virtual ICollection<Course> Courses { get; set; } = new List<Course>();
+
+    [InverseProperty("User")]
+    public virtual ICollection<Enrollment> Enrollments { get; set; } = new List<Enrollment>();
+
+    [InverseProperty("User")]
+    public virtual ICollection<Feedback> Feedbacks { get; set; } = new List<Feedback>();
+
+    [InverseProperty("User")]
+    public virtual ICollection<Submission> Submissions { get; set; } = new List<Submission>();
+
+    [InverseProperty("User")]
     public virtual ICollection<UserRole> UserRoles { get; set; } = new List<UserRole>();
 }
